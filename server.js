@@ -1,14 +1,14 @@
 const express = require("express")
 const app = express()
 const cors = require('cors')
-const connectDB = require('./database/newsLetterSubscriber')
+const connectDB = require('./database/connectDB')
 
 // environment variables configuration
 const dotenv = require('dotenv')
 dotenv.config()
 
 // import router
-const router = require('./routes/newsLetterSubscribe')
+const router = require('./routes/index')
 
 
 
@@ -19,7 +19,7 @@ connectDB();
 
 app.use('/', router)
 
-const PORT = 3000
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, ()=>{
-    console.log(`app is listening to http://localhost:${PORT}`)
+    console.log(`Server is running on port ${PORT}`)
 })
