@@ -7,7 +7,7 @@ const contactFormValidation = checkSchema({
             errorMessage: "First name is required",
         },
         isLength: {
-            options: { min: 2 },
+            options: { min: 3, max:18 },
             errorMessage: "First name must be at least 2 characters",
         },
     },
@@ -17,7 +17,7 @@ const contactFormValidation = checkSchema({
             errorMessage: "Last name is required",
         },
         isLength: {
-            options: { min: 2 },
+            options: { min: 3, max:18 },
             errorMessage: "Last name must be at least 2 characters",
         },
     },
@@ -30,7 +30,20 @@ const contactFormValidation = checkSchema({
             errorMessage: "Invalid email format",
         },
     },
-    phone: {
+    "phone.country": {
+        trim: true,
+        notEmpty: {
+            errorMessage: "Country code is required",
+        },
+        isString: {
+            errorMessage: "Country code must be a string",
+        },
+        isLength: {
+            options: { min: 1, max: 5 },
+            errorMessage: "Country code must be between 1 to 5 characters",
+        },
+    },
+    "phone.number": {
         trim: true,
         notEmpty: {
             errorMessage: "Phone number is required",

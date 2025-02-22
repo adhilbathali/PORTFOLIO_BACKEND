@@ -19,10 +19,17 @@ const ContactFormSchema = new mongoose.Schema({
         match: [/^\S+@\S+\.\S+$/, "Invalid email format"]
     },
     phone: {
-        type: String,
-        required: true,
-        trim: true,
-        match: [/^\d{10,15}$/, "Invalid phone number"]
+        country: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        number: {
+            type: String,
+            required: true,
+            trim: true,
+            match: [/^\d{10,15}$/, "Invalid phone number"]
+        }
     },
     representType: {
         type: String,

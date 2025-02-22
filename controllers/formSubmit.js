@@ -3,7 +3,6 @@ const ContactForm = require("../model/contactformSchema")
 
 // import express validator
 const { validationResult } = require("express-validator")
-const NewsLetter_Subscriber = require("../model/newsletterSchema")
 const { response } = require("express")
 
 const postFormData = async (req, res)=>{
